@@ -1,0 +1,304 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+:root {
+  --primary-clr: #fff111;
+  --bg-clr: #303030;
+  --white-bg: #303030;
+  --dark-text-clr: #fff;
+  --light-text-clr: #fff;
+  --hover-clr: #31313f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1.8rem;
+  font-family: Helvetica, sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: #ffcd37 #dfe9eb;
+}
+
+.sidebar-nav {
+  position: fixed;
+  height: 100vh;
+  margin-left: 0;
+  width: 7.5rem;
+  overflow: hidden;
+  background-color: var(--white-bg);
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+.sidebar-nav.active {
+  width: 25rem;
+}
+.sidebar-nav .logo {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 3rem;
+}
+.sidebar-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.link-item a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  font-size: 1.6rem;
+  white-space: nowrap;
+  color: var(--dark-text-clr);
+}
+
+.link-item a span {
+  transition: transform 0.5s;
+  transform: translateX(10rem);
+  color: var(--dark-text-clr);
+}
+.link-item:last-child span h4 {
+  line-height: 1;
+}
+.link-item:last-child span p {
+  font-size: 1.2rem;
+}
+.sidebar-nav.active .link-item a span {
+  transition-delay: calc(0.02s * var(--i));
+  transform: translateX(0rem);
+}
+.link-item a:hover {
+  background-color: var(--hover-clr);
+}
+.link-item.active a {
+  color: #23262b;
+  background-color: var(--primary-clr);
+}
+
+.link-item.active a span {
+  color: #23262b;
+  background-color: var(--primary-clr);
+}
+
+.link-item i {
+  min-width: 2rem;
+  min-height: 2rem;
+  margin-right: 2rem;
+  position: relative;
+}
+.link-item img {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 2rem;
+  border-radius: 50%;
+}
+.link-item i.noti-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.2rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: var(--primary-clr);
+  border: 0.1rem solid var(--white-bg);
+}
+
+/* Exibe o menu em dispositivos maiores que 768px */
+@media only screen and (max-width: 480px) {
+  .sidebar-nav {
+    display: none;
+    position: fixed;
+    height: 100vh;
+    left: rem;
+    margin-left: 0;
+    width: 7.5rem;
+    overflow: hidden;
+    background-color: var(--white-bg);
+    transition: all 0.3s ease;
+    z-index: 10000;
+  }
+
+  /* Estiliza o botão de abrir o menu */
+  button.btn-sidebar {
+    display: block !important;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
+
+  /* Estiliza o ícone do botão de abrir o menu */
+  button.btn-sidebar i {
+    display: block;
+    color: #1a1a1a;
+  }
+
+  /* Exibe o menu quando a classe .show é adicionada ao elemento */
+  .sidebar-nav.show {
+    display: block;
+  }
+
+  .container.boxPainel {
+    margin: 0 auto;
+    padding: 1rem;
+  }
+}
+
+.boxPainel {
+  margin-left: 10rem;
+  padding: 1rem;
+}
+
+button.btn-sidebar {
+  display: none;
+}
+
+.containerInfo {
+  text-align: center;
+  height: 20rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.21);
+  border-radius: 1.6rem;
+  box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.64rem);
+  -webkit-backdrop-filter: blur(0.64rem);
+  border: 0.1rem solid rgba(255, 255, 255, 0.24);
+}
+
+.ui-widgets {
+  position: relative;
+  display: inline-block;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 9rem;
+  margin: 1.5rem;
+  border: 1.2rem solid #303030;
+  box-shadow: inset 0 0 0.7rem grey;
+  border-left-color: #303030;
+  border-top-color: #303030;
+  border-right-color: #303030;
+  border-bottom-color: white;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.ui-widgets:nth-child(2) {
+  border-top-color: #303030;
+  border-right-color: white;
+  border-left-color: #303030;
+  border-bottom-color: white;
+}
+
+.ui-widgets .ui-values {
+  top: 2.5rem;
+  position: absolute;
+  left: 1rem;
+  right: 0;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.ui-widgets .ui-labels {
+  left: -1.2rem;
+  bottom: -4rem;
+  text-shadow: 0 0 0.4rem grey;
+  color: black;
+  position: absolute;
+  font-size: 1.6rem;
+}
+
+.tarefaCard {
+  height: 18rem;
+  width: 13rem;
+  margin: 1rem;
+  border: 0.6rem solid #303030;
+  border-radius: 1rem;
+}
+
+.dateForm {
+  border-radius: 1rem;
+  border: 0.1 solid var(--white-bg);
+  color: var(--hover-clr);
+  padding: 1rem;
+}
+
+.tabAgend {
+  border-bottom: 1rem;
+  background-color: var(--dark-text-clr);
+  box-shadow: 0.1rem 0.4rem 0.8rem #57575767;
+  margin-top: 1rem;
+}
+
+.btnDel {
+  background-color: #fff111;
+  color: red;
+  margin-left: 2rem;
+}
+
+.btnDel:hover {
+  background-color: #dfd103;
+}
+
+.btnDel a {
+  color: red;
+}
+
+#erroDelAgend {
+  color: red;
+}
+
+.formMsg > input {
+  width: 50%;
+  border: none;
+  height: 4rem;
+  padding: 1rem;
+  box-shadow: 0.1rem 0.4rem 0.8rem #57575767;
+}
+
+.formMsg > textarea {
+  width: 70%;
+  border: none;
+  height: 9rem;
+  padding: 1rem;
+  box-shadow: 0.1rem 0.4rem 0.8rem #57575767;
+}
+
+.projInputs {
+  width: 70%;
+  border: none;
+  padding: 1rem;
+  box-shadow: 0.1rem 0.4rem 0.8rem #57575767;
+}
+
+.my-btn2 {
+  color: var(--black);
+  font-size: 1.4rem;
+  text-decoration: none;
+  box-shadow: 0.1rem 0.4rem 0.8rem #575757;
+  padding: 1.4rem 2rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--white);
+  background: var(--white);
+  cursor: pointer;
+}
+
+.my-btn2:hover {
+  color: var(--black);
+  border: 0.1rem solid var(--black);
+}
